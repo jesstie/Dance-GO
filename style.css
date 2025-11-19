@@ -1,0 +1,237 @@
+@font-face {
+    font-family: 'Monopik';
+    src: url('fonts/Monopik.otf') format('opentype');
+    font-weight: normal;
+    font-size: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Monopik.otf', 'Monopik';
+} 
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('images/BG.png') no-repeat center;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper {
+    width: 375px;
+    height: 535px;
+    border-radius: 10px;
+    padding: 30px 40px;
+    background: linear-gradient(180deg, #3B1478 0%, #240A4C 100%);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.5s ease, height 0.2s ease;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Mengatur wadah input */
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 55px; /* Sedikit lebih tinggi agar mirip gambar */
+    margin: 25px 0;
+    margin-top: 40px;
+}
+
+/* Mengatur tampilan Input Field (Kotak isian) */
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Efek kaca transparan */
+    border: 2px solid rgba(169, 118, 255, 0.4); /* Border ungu pudar */
+    outline: none;
+    
+    /* Ubah radius agar tidak lonjong (sesuai gambar retro) */
+    border-radius: 10px; 
+    
+    /* Styling Teks Pixel */
+    font-family: 'Monopik.otf', 'Monopik';
+    font-size: 24px; /* Font pixel butuh ukuran lebih besar agar terbaca */
+    color: #fff;
+    padding: 20px;
+    letter-spacing: 2px; /* Jarak antar huruf pixel */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Efek kedalaman (inset) */
+    transition: .3s;
+}
+
+/* Efek saat input diklik (Focus) */
+.input-box input:focus {
+    border-color: #cbb2ff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3); /* Efek glow ungu */
+}
+
+/* Mengatur Teks Placeholder (USERNAME / PASSWORD) */
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Monopik.otf', 'Monopik';
+    text-transform: uppercase; /* Memaksa huruf besar semua */
+    font-size: 24px; /* Ukuran font placeholder besar seperti di gambar */
+}
+
+.wrapper .btn {
+    width: 75%;
+    height: 50px;
+    margin-top: 35px;
+    margin-left: 34px;
+    
+    /* Gradasi Ungu Gelap ke Ungu Terang */
+    background: linear-gradient(180deg, #3F119C 0%, #160636 100%);
+    
+    border: none;
+    outline: none;
+    border-radius: 10px; /* Samakan radius dengan input field */
+    cursor: pointer;
+    
+    /* Bayangan Neon di bawah tombol */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(123, 31, 162, 0.4); /* Glow ungu */
+    
+    /* Styling Teks Tombol */
+    font-family: 'Monopik.otf', 'Monopik';
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
+
+.wrapper .btn:hover {
+    background: linear-gradient(180deg, #240A4C 0%, #5417B2 100%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 
+                0 0 30px rgba(123, 31, 162, 0.6); /* Glow ungu lebih terang */
+}
+
+/* Efek tombol ditekan */
+.wrapper .btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+header {
+    position: absolute;
+    top : 0;
+    left : 0;
+    width: 100%;
+    padding: 20px 40px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+#adminLogo {
+    display: inline-block; /* Agar properti width/height berfungsi */
+    width: 50px;          /* Sesuaikan ukuran icon */
+    height: 50px;         /* Sesuaikan ukuran icon */
+    
+    /* Masukkan gambar AFTER di sini sebagai background */
+    background-image: url('images/adminAfter.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.before-img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#adminLogo:hover .before-img {
+    opacity: 0; /* Membuat gambar depan menghilang perlahan */
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-img {
+    display: block;
+    width: 135px;  /* Sesuaikan ukuran, 229px mungkin terlalu besar untuk HP */
+    height: 135px;
+    
+    /* Membuat icon otomatis di tengah */
+    margin: 0 auto 20px auto; 
+
+    /* Background Gradient (Tinta) */
+    background: linear-gradient(180deg, #7b1fa2 0%, #4a148c 100%); 
+
+    /* Masking */
+    -webkit-mask-image: url('images/profile.png');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url('images/profile.png');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay .wrapper {
+    transform: scale(0.8);
+}
+
+.overlay.visible .wrapper {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.close-btn:hover {
+    color: #cbb2ff;
+}
