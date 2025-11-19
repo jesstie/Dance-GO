@@ -1,16 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dance Go!</title>
-        <link rel="icon" href="images/DanceGo.png">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="scan-container">
-            <button class="scan-button" onclick="scan()">SCAN</button>
-        </div>
-        <script src="scan.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Dance Go</title>
+    <link rel="icon" type="image/png" href="image/DanceGo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOGO DI ATAS -->
+<img src="image/Logo.png" class="header-logo">
+<img src="image/admin.png"class="admin-logo" onclick="goto('login')">
+
+
+<div class="table-wrapper">
+
+    <!-- HEADER -->
+    <table>
+        <thead class="table-header">
+        <tr>
+            <th class="nomor">No.</th>
+            <th class="jadwal">Jadwal</th>
+            <th class="status">Status</th>
+            <th class="aksi">Aksi</th>
+        </tr>
+        </thead>
+    </table>
+
+    <!-- SCROLL AREA -->
+    <div class="scroll-area">
+        <table>
+            <tbody>
+
+            <tr>
+                <td>1.</td>
+                <td>08.00 – 08.45</td>
+                <td><span class="badge expired">Expired</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>2.</td>
+                <td>09.00 – 09.45</td>
+                <td><span class="badge expired">Expired</span></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>3.</td>
+                <td>10.00 – 10.45</td>
+                <td>
+                    <span class="badge notused">Not Used</span>
+                    <span class="badge reserved">Reserved</span>
+                </td>
+                <td>
+                    <button class="btn" onclick="goto('scan')">MAIN</button>
+                    <button class="btn" onclick="goto('scan')">HAPUS</button>
+                </td>
+            </tr>
+
+            <tr>
+                <td>4.</td>
+                <td>11.00 – 11.45</td>
+                <td><span class="badge reserved">Reserved</span></td>
+                <td><button class="btn">HAPUS</button></td>
+            </tr>
+
+            <tr>
+                <td>5.</td>
+                <td>12.00 – 12.45</td>
+                <td><span class="badge notused">Not Reserved</span></td>
+                <td><button class="btn">RESERVASI</button></td>
+            </tr>
+
+            <tr>
+                <td>6.</td>
+                <td>13.00 – 13.45</td>
+                <td><span class="badge reserved">Reserved</span></td>
+                <td><button class="btn">HAPUS</button></td>
+            </tr>
+
+            <tr>
+                <td>7.</td>
+                <td>14.00 – 14.45</td>
+                <td><span class="badge notused">Not Reserved</span></td>
+                <td><button class="btn">RESERVASI</button></td>
+            </tr>
+
+            <tr>
+                <td>8.</td>
+                <td>15.00 – 15.45</td>
+                <td><span class="badge reserved">Reserved</span></td>
+                <td><button class="btn">HAPUS</button></td>
+            </tr>
+
+            <!-- TAMBAH BARIS SEBANYAK APAPUN, AUTOMATIS SCROLL -->
+            <tr><td>9.</td><td>16.00 – 16.45</td><td><span class="badge reserved">Reserved</span></td><td><button class="btn">HAPUS</button></td></tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="goto.js"></script>
+
+</body>
 </html>
