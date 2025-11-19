@@ -1,13 +1,10 @@
 /* ================= FONT ================= */
-        @font-face {
-            font-family: "Inter";
-            @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+KR:wght@200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+KR:wght@200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
         body {
             margin: 0;
             padding: 0;
-            background: url("image/BG.png") center/cover no-repeat fixed;
+            background: url("images/BG.png") center/cover no-repeat fixed;
             font-family: "Inter", sans-serif;
             display: flex;
             flex-direction: column;
@@ -43,16 +40,16 @@
             width: 85%;
             max-width: 1000px;
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(50px);
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
-            height: 73vh;
+            height: 78vh;
         }
 
         /* ================= HEADER (nempel, gradient) ================= */
         .table-header {
-            background: linear-gradient(to right, #8c00ff, #d000ff);
+            background: linear-gradient(to bottom, #430762, #9914DD);
             color: white;
             text-transform: uppercase;
         }
@@ -61,6 +58,7 @@
             width: 1px;
             max-width: 1px;
             text-align: left;
+            background: #008f2b;
         }
 
         .jadwal {
@@ -101,6 +99,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 19px;
+            font-weight: 500;
         }
 
         td, th {
@@ -125,9 +124,10 @@
         /* ================= STATUS BADGE ================= */
         .badge {
             padding: 6px 14px;
-            border-radius: 12px;
+            border-radius: 15px;
             font-size: 13px;
             display: inline-block;
+            padding: 10px;
         }
 
         .expired {
@@ -148,17 +148,17 @@
         /* ================= BUTTON ================= */
         .btn {
             padding: 8px 16px;
-            background: #351af5;
+            background: linear-gradient(180deg,#3a0db8,#1b0c47);
             color: white;
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             cursor: pointer;
             font-family: "Monopik";
-            box-shadow: 0 0 12px rgba(93, 52, 255, 0.9);
-            transition: 0.3s;
+            box-shadow: 0px 0px 20px rgba(130, 50, 255,0.8);
+            transition: 0.2s ease;
         }
 
         .btn:hover {
             transform: scale(1.08);
-            background: #5f3fff;
+            background: linear-gradient(180deg,#3a0db8,#000000);
         }

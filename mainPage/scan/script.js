@@ -15,3 +15,7 @@ navigator.mediaDevices.getUserMedia({
     console.error("Gagal membuka kamera:", error);
     alert("Tidak bisa mengakses kamera. Pastikan izin kamera diizinkan.");
 });
+
+function goBack() {
+    window.history.back();
+}
