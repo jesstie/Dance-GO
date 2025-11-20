@@ -15,7 +15,7 @@ function login() {
     }
 
     if (username == "admin" && password == "admin123") {
-        goto("admin.html");
+        goto("admin");
     } else {
         alert("Username atau Password salah!");
     }
