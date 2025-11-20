@@ -1,164 +1,326 @@
 /* ================= FONT ================= */
-        @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+KR:wght@200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif+KR:wght@200..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: url("images/BG.png") center/cover no-repeat fixed;
-            font-family: "Inter", sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background: url("images/BG.png") center/cover no-repeat fixed;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
 
-        /* ================= LOGO ATAS ================= */
-        .header-logo {
-            width: 320px;
-            margin-top: 30px;
-            margin-bottom: 25px;
-        }
-        .admin-container{
-        width: 100%;
-        position: relative;
-        }
-        .admin-logo {
+.wrapper {
+    width: 500px;
+    height: 70vh;
+    padding: 25px 30px;
+    background: linear-gradient(180deg, #3B1478, #240A4C);
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
 
-            position:absolute;
-            width: 50px;
-            left: 40px;
-            top: 40px;
-            cursor: pointer;
-            align-items: left;
-        }
-        .admin-logo:hover{
-        transform: scale(1.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        }
+    transform: scale(0.7);
+    transition: transform .3s ease;
+}
 
-        /* ================= TABLE WRAPPER ================= */
-        .table-wrapper {
-            width: 85%;
-            max-width: 1000px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(50px);
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
-            height: 78vh;
-        }
+.wrapper.active-popup {
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
 
-        /* ================= HEADER (nempel, gradient) ================= */
-        .table-header {
-            background: linear-gradient(to bottom, #430762, #9914DD);
-            color: white;
-            text-transform: uppercase;
-        }
+/* Mengatur wadah input */
+.wrapper .input-box {
+    position: relative;
+    width: 90%;
+    height: 30px; /* Sedikit lebih tinggi agar mirip gambar */
+    margin: 25px 0;
+    margin-top: 40px;
+    margin-right: 36px;
+}
 
-        .nomor {
-            width: 1px;
-            max-width: 1px;
-            text-align: left;
-            background: #008f2b;
-        }
+/* Mengatur tampilan Input Field (Kotak isian) */
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Efek kaca transparan */
+    border: 2px solid rgba(169, 118, 255, 0.4); /* Border ungu pudar */
+    outline: none;
+    
+    /* Ubah radius agar tidak lonjong (sesuai gambar retro) */
+    border-radius: 10px; 
+    
+    /* Styling Teks Pixel */
+    font-family: 'Monopik.otf', 'Monopik';
+    font-size: 24px; /* Font pixel butuh ukuran lebih besar agar terbaca */
+    color: #fff;
+    padding: 20px;
+    letter-spacing: 2px; /* Jarak antar huruf pixel */
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Efek kedalaman (inset) */
+    transition: .3s;
+}
 
-        .jadwal {
-            width: 30px;
-            max-width: 30px;
-            text-align: left;
-        }
+/* Efek saat input diklik (Focus) */
+.input-box input:focus {
+    border-color: #cbb2ff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3); /* Efek glow ungu */
+}
 
-        .status {
+/* Mengatur Teks Placeholder (USERNAME / PASSWORD) */
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Monopik.otf', 'Monopik';
+    text-transform: uppercase; /* Memaksa huruf besar semua */
+    font-size: 24px; /* Ukuran font placeholder besar seperti di gambar */
+}
 
-            width: 30px;
-            text-align: left;
-        }
+.wrapper .btn {
+    width: 45%;
+    height: 60px;
+    margin-top: 100px;
+    margin-left: 10px;
+    
+    /* Gradasi Ungu Gelap ke Ungu Terang */
+    background: linear-gradient(180deg, #3F119C 0%, #160636 100%);
+    
+    border: none;
+    outline: none;
+    border-radius: 10px; /* Samakan radius dengan input field */
+    cursor: pointer;
+    
+    /* Bayangan Neon di bawah tombol */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(123, 31, 162, 0.4); /* Glow ungu */
+    
+    /* Styling Teks Tombol */
+    font-family: 'Monopik.otf', 'Monopik';
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+}
 
-        .aksi {
-            width: 30px;
-            text-align: left;
-        }
+.wrapper .btn:hover {
+    background: linear-gradient(180deg,#3a0db8,#000000);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 
+                0 0 30px rgba(123, 31, 162, 0.6); /* Glow ungu lebih terang */
+}
 
-        .table-header th {
-            padding: 18px;
-            font-size: 18px;
-            align-items: left;
-        }
+.login-img {
+    width: 180px;
+    height: 180px;
+    margin: 50px auto 25px auto;
+    background: linear-gradient(180deg, #7b1fa2, #4a148c);
+    -webkit-mask-image: url('images/profile.png');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
 
-        /* ================= SCROLL AREA ================= */
-        .scroll-area {
-            display: block;
-            max-height: 73vh;
-            overflow-y: auto;
-        }
+.overlay {
+    z-index: 9999;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+}
 
-        .scroll-area::-webkit-scrollbar {
-            display: none;
-        }
+.overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 19px;
-            font-weight: 500;
-        }
+.overlay .wrapper {
+    transform: scale(0.8);
+}
 
-        td, th {
-            padding: 25px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-        }
+.overlay.visible .wrapper {
+    transform: scale(1);
+}
 
-        /* ================= ROW COLORS (mirip screenshot) ================= */
-        tr:nth-child(odd) {
-            background: rgba(255,255,255,0.25);
-        }
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px;
+}
 
-        tr:nth-child(even) {
-            background: rgba(255,255,255,0.35);
-        }
+.close-btn:hover {
+    color: #cbb2ff;
+}
 
-        /* BARIS 3 HIGHLIGHT */
-        tr:nth-child(3) {
-            background: rgba(0,255,0,0.23);
-        }
+/* Efek tombol ditekan */
+.wrapper .btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
 
-        /* ================= STATUS BADGE ================= */
-        .badge {
-            padding: 6px 14px;
-            border-radius: 15px;
-            font-size: 13px;
-            display: inline-block;
-            padding: 10px;
-        }
+/* ================= LOGO ATAS ================= */
+.header-logo {
+    width: 320px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.admin-container{
+width: 100%;
+position: relative;
+}
+.admin-logo {
+    z-index: 9999;
+    position:absolute;
+    width: 50px;
+    left: 40px;
+    top: 40px;
+    cursor: pointer;
+    align-items: left;
+}
+.admin-logo:hover{
+transform: scale(1.08);
 
-        .expired {
-            background: #dcdcdc;
-            color: #4a4a4a;
-        }
+}
 
-        .notused {
-            background: #ffb4b4;
-            color: red;
-        }
+/* ================= TABLE WRAPPER ================= */
+.table-wrapper {
+    width: 85%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(50px);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.6);
+    height: 79vh;
+}
 
-        .reserved {
-            background: #baffc2;
-            color: #008f2b;
-        }
+/* ================= HEADER (nempel, gradient) ================= */
+.table-header {
+    background: linear-gradient(to bottom, #470768, #9013CC);
+    color: white;
+    text-transform: uppercase;
+    height: 70px;
+}
 
-        /* ================= BUTTON ================= */
-        .btn {
-            padding: 8px 16px;
-            background: linear-gradient(180deg,#3a0db8,#1b0c47);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-family: "Monopik";
-            box-shadow: 0px 0px 20px rgba(130, 50, 255,0.8);
-            transition: 0.2s ease;
-        }
+.nomor {
+    width: 1px;
+    max-width: 1px;
+    text-align: left;
+}
 
-        .btn:hover {
-            transform: scale(1.08);
-            background: linear-gradient(180deg,#3a0db8,#000000);
-        }
+.jadwal {
+    width: 30px;
+    max-width: 30px;
+    text-align: left;
+}
+
+.status {
+
+    width: 30px;
+    text-align: left;
+}
+
+.aksi {
+    width: 30px;
+    text-align: left;
+}
+
+.table-header th {
+    padding: 18px;
+    font-size: 18px;
+    align-items: left;
+}
+
+/* ================= SCROLL AREA ================= */
+.scroll-area {
+    display: block;
+    max-height: 73vh;
+    overflow-y: auto;
+}
+
+.scroll-area::-webkit-scrollbar {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+td, th {
+    padding: 25px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ================= ROW COLORS (mirip screenshot) ================= */
+tr:nth-child(odd) {
+    background: rgba(255,255,255,0.25);
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.35);
+}
+
+/* BARIS 3 HIGHLIGHT */
+tr:nth-child(3) {
+    background: rgba(0,255,0,0.23);
+}
+
+/* ================= STATUS BADGE ================= */
+.badge {
+    padding: 6px 14px;
+    border-radius: 15px;
+    font-size: 13px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.expired {
+    background: #dcdcdc;
+    color: #4a4a4a;
+}
+
+.notused {
+    background: #ffb4b4;
+    color: red;
+}
+
+.reserved {
+    background: #baffc2;
+    color: #008f2b;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+    padding: 8px 16px;
+    background: linear-gradient(180deg,#3a0db8,#1b0c47);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: "Monopik";
+    box-shadow: 0px 0px 20px rgba(130, 50, 255,0.8);
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(180deg,#3a0db8,#000000);
+}

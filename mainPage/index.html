@@ -11,7 +11,25 @@
 
 <!-- LOGO DI ATAS -->
 <img src="images/Logo.png" class="header-logo">
-<img src="images/admin.png"class="admin-logo" onclick="goto('login')">
+<a href="#" id="adminLogo" aria-label="Buka popup login">
+    <img src="images/admin.png" class="admin-logo">
+</a>
+
+<div class="overlay" id="loginOverlay" aria-hidden="true">
+        <div class="wrapper" id="loginPopup" role="dialog" aria-modal="true">
+            <button type="button" id="closeLogin" class="close-btn" aria-label="Close login dialog">
+                <i class="bx bx-x"></i>
+            </button>
+            <div class="login-img"></div>
+            <div class="input-box">
+                <input type="text" placeholder="Username" required id="usn">
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" required id="pwd">
+            </div>
+            <button type="submit" class="btn" onclick="login()">Login</button>
+        </div>
+    </div>
 
 <div class="table-wrapper">
 
