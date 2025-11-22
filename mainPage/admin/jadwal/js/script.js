@@ -12,3 +12,7 @@ document.addEventListener("click", function (e) {
     navbarNav.classList.remove("active");
   }
 });
+
+function logOut() {
+  window.location.href = "/";
+}
