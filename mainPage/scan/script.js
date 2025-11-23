@@ -35,12 +35,12 @@ function scanQR() {
             const nim = qr.data.slice(2, 4);
 
             if (nim == "51") {
-                alert("Berhasil Scan!\nSelamat Bermain!");
+                alert(qr.data + "\nBerhasil Scan!\nSelamat Bermain!");
                 localStorage.setItem("scanStatus", "success");
                 localStorage.setItem("slot", "3");
                 goBack();
             } else {
-                alert("Gagal!\nBukan NIM FILKOM UB");
+                alert(qr.data + "\nGagal!\nBukan NIM FILKOM UB");
                 localStorage.setItem("scanStatus", "failed");
             }
             
