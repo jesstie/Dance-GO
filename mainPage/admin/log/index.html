@@ -39,10 +39,10 @@
 
     <div class="navbar-nav" id="navbarNav">
       <img src="images/AdminSidebar.png" alt="AdminSidebar" id="AdminSidebar" />
-      <a href="index.html" id="jadwalAdmin"
+      <a href="../jadwal/index.html" id="jadwalAdmin"
         ><img src="images/jadwalAdmin.png" alt="jadwalAdmin"
       /></a>
-      <a href="../log/index.html" id="logAdmin"
+      <a href="index.html" id="logAdmin"
         ><img src="images/logAdmin.png" alt="logAdmin"
       /></a>
       <a href="../../index.html" id="log-out"
@@ -51,15 +51,16 @@
     </div>
     <!-- Navbar End -->
 
-    <main class="schedule-section" id="JadwalAdmin">
-      <h1 class="page-title">JADWAL PEMINJAMAN</h1>
+    <main class="log-section" id="LogAdmin">
+      <h1 class="page-title">LOG PEMINJAMAN</h1>
       <div class="table-wrapper">
         <table>
           <thead class="table-header">
             <tr>
               <th class="nomor">Nomor</th>
+              <th class="peminjam">Peminjam</th>
+              <th class="tanggal">Tanggal</th>
               <th class="jadwal">Jadwal</th>
-              <th class="status">Status</th>
               <th class="aksi">Aksi</th>
             </tr>
           </thead>
@@ -68,66 +69,71 @@
         <div class="scroll-area">
           <table>
             <tbody>
-              <tr class="muted">
+              <tr>
                 <td>1.</td>
-                <td>08.00 – 08.45</td>
-                <td><span class="badge expired">Expired</span></td>
-                <td></td>
+                <td>245150200111062</td>
+                <td>23/11/2025</td>
+                <td>08.00 - 08.45</td>
+                <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
-              <tr class="muted">
+              <tr>
                 <td>2.</td>
-                <td>09.00 – 09.45</td>
-                <td><span class="badge expired">Expired</span></td>
-                <td></td>
+                <td>235150307111022</td>
+                <td>23/11/2025</td>
+                <td>09.00 - 09.45</td>
+                <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
-              <tr class="highlight">
+              <tr>
                 <td>3.</td>
-                <td>10.00 – 10.45</td>
-                <td>
-                  <span class="badge used">Used</span>
-                </td>
-                <td>
-                  <button class="btn stop-action">STOP</button>
-                </td>
+                <td>255150201111087</td>
+                <td>23/11/2025</td>
+                <td>12.00 - 12.45</td>
+                <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
               <tr>
                 <td>4.</td>
-                <td>11.00 – 11.45</td>
-                <td><span class="badge reserved">Reserved</span></td>
+                <td>245150200111077</td>
+                <td>24/11/2025</td>
+                <td>10.00 - 10.45</td>
                 <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
               <tr>
                 <td>5.</td>
-                <td>12.00 – 12.45</td>
-                <td><span class="badge notused">Not Reserved</span></td>
-                <td></td>
+                <td>235150300111092</td>
+                <td>24/11/2025</td>
+                <td>15.00 - 15.45</td>
+                <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
               <tr>
                 <td>6.</td>
-                <td>13.00 – 13.45</td>
-                <td><span class="badge reserved">Reserved</span></td>
+                <td>245150201111029</td>
+                <td>24/11/2025</td>
+                <td>16.00 - 16.45</td>
                 <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
 
               <tr>
                 <td>7.</td>
-                <td>14.00 – 14.45</td>
-                <td><span class="badge notused">Not Reserved</span></td>
-                <td></td>
+                <td>255150307111086</td>
+                <td>25/11/2025</td>
+                <td>08.00 - 08.45</td>
+                <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
 
               <tr>
                 <td>8.</td>
-                <td>15.00 – 15.45</td>
-                <td><span class="badge reserved">Reserved</span></td>
+                <td>255150201111055</td>
+                <td>25/11/2025</td>
+                <td>11.00 - 11.45</td>
                 <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
 
               <!-- TAMBAH BARIS SEBANYAK APAPUN, AUTOMATIS SCROLL -->
               <tr>
                 <td>9.</td>
-                <td>16.00 – 16.45</td>
-                <td><span class="badge reserved">Reserved</span></td>
+                <td>235150307111030</td>
+                <td>25/11/2025</td>
+                <td>14.00 - 14.45</td>
                 <td><button class="btn delete-action">HAPUS</button></td>
               </tr>
             </tbody>
@@ -136,10 +142,10 @@
       </div>
     </main>
 
-    <div class="stop-facility">
-      <button class="btn stop" id="toggleFacility">
-        <i data-feather="power"></i>
-        <span>BERHENTIKAN FASILITAS</span>
+    <div class="export-data">
+      <button class="btn export" id="exportData">
+        <i data-feather="download"></i>
+        <span>EXPORT DATA</span>
       </button>
     </div>
 
@@ -147,37 +153,35 @@
       <div class="stop-modal" role="dialog" aria-modal="true">
         <img src="images/warning.png" alt="Warning" class="warning-icon" />
         <p class="modal-text" id="actionMessage">
-          Apakah Anda yakin dengan tindakan ini?
+          Apakah Anda yakin ingin menghapus data ini?
         </p>
         <div class="modal-actions">
           <button type="button" class="modal-btn danger" id="cancelAction">
             TIDAK
           </button>
-          <button type="button" class="modal-btn success" id="confirmAction">
-            YA
+          <button
+            type="button"
+            class="modal-btn success alt"
+            id="confirmAction"
+          >
+            HAPUS
           </button>
         </div>
       </div>
     </div>
 
-    <div class="stop-overlay" id="stopOverlay" aria-hidden="true">
-      <div class="stop-modal" role="dialog" aria-modal="true">
-        <img src="images/warning.png" alt="Warning" class="warning-icon" />
-        <p class="modal-text" id="modalMessage">
-          Apakah Anda ingin mematikan fasilitas?
-        </p>
+    <div class="success-overlay" id="successOverlay" aria-hidden="true">
+      <div class="success-modal" role="dialog" aria-modal="true">
+        <img src="images/success.png" alt="Success" class="success-icon" />
+        <p class="modal-text" id="successMessage">Data Berhasil Diexport!</p>
         <div class="modal-actions">
-          <button type="button" class="modal-btn danger" id="cancelStop">
-            TIDAK
-          </button>
-          <button type="button" class="modal-btn success" id="confirmStop">
-            YA
+          <button type="button" class="modal-btn confirm" id="confirmSuccess">
+            KEMBALI
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Feather Icons -->
     <script>
       feather.replace();
     </script>
